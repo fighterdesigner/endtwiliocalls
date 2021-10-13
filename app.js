@@ -1,10 +1,10 @@
 require("dotenv").config()
 const accountSid = process.env.ACCOUNT_SID
 const authToken = process.env.AUTH_TOKEN
+const url = process.env.URL
 const client = require('twilio')(accountSid, authToken)
 const cron = require('node-cron')
 const axios = require('axios')
-const url = "https://api-dev.zeetip.com/api/calls?status=En%20attente&freeCall=1"
 
 cron.schedule('* * * * * *', () => {
   getCalls()
